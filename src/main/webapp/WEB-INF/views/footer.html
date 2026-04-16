@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<footer th:fragment="footer">
+  <p> <span th:text="${'실습 수행: ' + #temporals.format(#temporals.createNow(), 'yyyy-MM-dd HH:mm:ss')}"></span> - 학번: 2171106 - 성명: 송지헌</p>
+</footer>
+</body>
+</html>
