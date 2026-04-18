@@ -13,6 +13,11 @@ import java.util.List;
 @ToString(exclude = "products")          // products 제외: 양방향 무한순환 방지
 @NoArgsConstructor(access = AccessLevel.PROTECTED) // JPA 요구 기본 생성자 (외부 직접 생성 방지)
 public class Category {
+
+    /*
+    * id를 기본키로 지정
+    * IDENTITY 전략 사용으로 persist() 즉시 SQL INSERT 실행
+    */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -33,5 +38,6 @@ public class Category {
         product.setCategory(this);            // Owning Side(FK) 설정!
     }
 
+    //생성자
     public Category(String name) { this.name = name; }
 }
