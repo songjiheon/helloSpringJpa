@@ -242,7 +242,7 @@ public class ProductController {
      * 삭제 후에는 상세 페이지로 돌아갈 수 없으므로 목록으로 리다이렉트합니다.
      */
     @PostMapping("/{id}/delete")
-    public String deleteProduct(@PathVariable Long id,
+    public String deleteProduct(@PathVariable(name="id") Long id,
                                 RedirectAttributes redirectAttributes) {
 
         Product product = productService.getProductById(id)

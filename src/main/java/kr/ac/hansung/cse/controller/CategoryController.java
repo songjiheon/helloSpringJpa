@@ -49,10 +49,11 @@ public class CategoryController {
             // 중복 예외 → BindingResult에 필드 오류 등록 후 폼 재표시
             bindingResult.rejectValue("name", "duplicate", e.getMessage());
             return "categoryForm"; }
-        return "redirect:/categories"; }
+        return "redirect:/categories";
+    }
 
     @PostMapping("/{id}/delete")
-    public String deleteCategory(@PathVariable Long id,
+    public String deleteCategory(@PathVariable(name="id") Long id,
                                  RedirectAttributes redirectAttributes) {
         try {
             categoryService.deleteCategory(id);
